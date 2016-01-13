@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<sdf version="1.4">
+<world name="racecar_tunnel">
+
+	<include>
+		<uri>model://sun</uri>
+	</include>
+
+	<include>
+		<uri>model://ground_plane</uri>
+	</include>
+
+	<include>
+		<uri>model://mit_tunnel_layout</uri>
+	</include>
+
+	<include>
+		<uri>model://racecar</uri>
+	</include>
+
+</world>
+</sdf>

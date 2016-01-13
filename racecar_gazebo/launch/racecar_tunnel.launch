@@ -1,0 +1,6 @@
+<launch>	  
+	<include file="$(find gazebo_ros)/launch/empty_world.launch">	    
+		<arg name="world_name" value="$(find racecar_gazebo)/worlds/racecar_tunnel.world"/>	    
+		<arg name="gui" value="true"/>	  
+	</include>	
+</launch>
