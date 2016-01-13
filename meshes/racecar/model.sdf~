@@ -1,0 +1,448 @@
+<?xml version='1.0'?>
+<sdf version='1.4'>
+  <model name="RACECAR">
+    <static>false</static>
+
+    <link name='Chassis'>
+
+      <collision name="chassis">
+        <pose>0.139 0.0 0.070 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.335 0.152 0.070</size>
+          </box>
+        </geometry>
+      </collision>
+
+<!--      <visual name='visual'>
+        <pose>0.139 0.0 0.070 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.335 0.152 0.070</size>
+          </box>
+        </geometry>
+      </visual> -->
+
+      <visual name='visual'>
+        <pose>0 0 0.03535 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://racecar/meshes/Chassis.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+
+    </link>
+
+<!-- ____________________________________________________ -->
+
+    <link name='Tire_Rear_Left'>
+
+      <collision name="collision">
+        <pose>0 0.086 0.036 1.5707 0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>.036</radius>
+            <length>.016</length>
+          </cylinder>
+        </geometry>
+      </collision>
+      
+<!--      <visual name="visual">
+        <pose>0 0.086 0.036 1.5707 0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>.036</radius>
+            <length>.016</length>
+          </cylinder>
+        </geometry>
+      </visual> -->
+
+      <visual name='visual'>
+        <pose>0 0 0.03535 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://racecar/meshes/Tire_Rear_Left.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+
+    <joint type="revolute" name="tire_rear_left_joint">
+      <pose>0 0 0.036 0 0 0</pose>
+      <child>Tire_Rear_Left</child>
+      <parent>Chassis</parent>
+      <axis>
+        <xyz>0 1 0</xyz>
+      </axis>
+    </joint>
+
+<!-- ____________________________________________________ -->
+
+    <link name='Tire_Rear_Right'>
+
+      <collision name="collision">
+        <pose>0 -0.086 0.036 1.5707 0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>.036</radius>
+            <length>.016</length>
+          </cylinder>
+        </geometry>
+      </collision>
+      
+<!--      <visual name="visual">
+        <pose>0 -0.086 0.036 1.5707 0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>.036</radius>
+            <length>.016</length>
+          </cylinder>
+        </geometry>
+      </visual> -->
+      
+      <visual name='visual'>
+      <pose>0 0 0.03535 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://racecar/meshes/Tire_Rear_Right.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+
+    <joint type="revolute" name="tire_rear_right_joint">
+      <pose>0 0 0.036 0 0 0</pose>
+      <child>Tire_Rear_Right</child>
+      <parent>Chassis</parent>
+      <axis>
+        <xyz>0 1 0</xyz>
+      </axis>
+    </joint>
+
+<!-- ____________________________________________________ -->
+
+    <link name='Servo_Horn'>
+      <pose>0 0 0.03535 0 0 0</pose>
+      <visual name='visual'>
+        <geometry>
+          <mesh>
+            <uri>model://racecar/meshes/Servo_Horn.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+
+    <joint type="revolute" name="servo_horn_joint">
+      <pose>0.1965 0.04364 0.0 0 0 0</pose>
+      <child>Servo_Horn</child>
+      <parent>Chassis</parent>
+      <axis>
+        <xyz>1 0 0</xyz>
+      </axis>
+    </joint>
+
+<!-- ____________________________________________________ -->
+
+
+    <link name='Crank_Left'>
+      <pose>0 0 0.03535 0 0 0</pose>
+      <visual name='visual'>
+        <geometry>
+          <mesh>
+            <uri>model://racecar/meshes/Crank_Left.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+
+    <joint type="revolute" name="crank_left_joint">
+      <pose>0.2375 0.02136 0 0 0 0</pose>
+      <child>Crank_Left</child>
+      <parent>Chassis</parent>
+      <axis>
+        <xyz>0 0 1</xyz>
+      </axis>
+    </joint>
+
+<!-- ____________________________________________________ -->
+
+    <link name='Crank_Right'>
+      <pose>0 0 0.03535 0 0 0</pose>
+      <visual name='visual'>
+        <geometry>
+          <mesh>
+            <uri>model://racecar/meshes/Crank_Right.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+
+    <joint type="revolute" name="crank_right_joint">
+      <pose>0.2375 -0.02136 0 0 0 0</pose>
+      <child>Crank_Right</child>
+      <parent>Chassis</parent>
+      <axis>
+        <xyz>0 0 1</xyz>
+      </axis>
+    </joint>
+
+<!-- ____________________________________________________ -->
+
+    <link name='Coupler'>
+      <pose>0 0 0.03535 0 0 0</pose>
+      <visual name='visual'>
+        <geometry>
+          <mesh>
+            <uri>model://racecar/meshes/Coupler.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+
+    <joint type="revolute" name="coupler_left_joint">
+      <pose>0.2205 0.02136 0 0 0 0</pose>
+      <child>Coupler</child>
+      <parent>Crank_Left</parent>
+      <axis>
+        <xyz>0 0 1</xyz>
+      </axis>
+    </joint>
+
+    <joint type="revolute" name="coupler_right_joint">
+      <pose>0.2205 -0.02136 0 0 0 0</pose>
+      <child>Coupler</child>
+      <parent>Crank_Right</parent>
+      <axis>
+        <xyz>0 0 1</xyz>
+      </axis>
+    </joint>
+
+<!-- ____________________________________________________ -->
+
+    <link name='Turnbuckle_Servo'>
+      <pose>0 0 0.03535 0 0 0</pose>
+      <visual name='visual'>
+        <geometry>
+          <mesh>
+            <uri>model://racecar/meshes/Turnbuckle_Servo.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+
+    <joint type="ball" name="turnbuckle_servo_joint">
+      <pose>0.20775 0.04145 0.01689 0 0 0</pose>
+      <child>Turnbuckle_Servo</child>
+      <parent>Servo_Horn</parent>
+      <axis>
+        <xyz>1 1 1</xyz>
+      </axis>
+    </joint>
+
+    <joint type="ball" name="turnbuckle_coupler_joint">
+      <pose>0.21225 0.00014 0.02058 0 0 0</pose>
+      <child>Turnbuckle_Servo</child>
+      <parent>Coupler</parent>
+      <axis>
+        <xyz>1 1 1</xyz>
+      </axis>
+    </joint>
+
+<!-- ____________________________________________________ -->
+
+    <link name='Upright_Front_Left'>
+      <pose>0 0 0.03535 0 0 0</pose>
+      <visual name='visual'>
+        <geometry>
+          <mesh>
+            <uri>model://racecar/meshes/Upright_Front_Left.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+
+    <joint type="revolute" name="upright_front_left_top_joint">
+      <pose>0.28101 0.05666 0.02187 0 0 0</pose>
+      <child>Upright_Front_Left</child>
+      <parent>Chassis</parent>
+      <axis>
+        <xyz>0 0 1</xyz>
+      </axis>
+    </joint>
+
+<!-- ____________________________________________________ -->
+
+    <link name='Upright_Front_Right'>
+      <pose>0 0 0.03535 0 0 0</pose>
+      <visual name='visual'>
+        <geometry>
+          <mesh>
+            <uri>model://racecar/meshes/Upright_Front_Right.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+
+    <joint type="revolute" name="upright_front_right_top_joint">
+      <pose>0.28101 -0.05666 0.02187 0 0 0</pose>
+      <child>Upright_Front_Right</child>
+      <parent>Chassis</parent>
+      <axis>
+        <xyz>0 0 1</xyz>
+      </axis>
+    </joint>
+
+<!-- ____________________________________________________ -->
+
+    <link name='Tire_Front_Left'>
+
+      <collision name="collision">
+        <pose>0.281 0.086 0.0405 1.5707 0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>.036</radius>
+            <length>.016</length>
+          </cylinder>
+        </geometry>
+      </collision>
+      
+<!--      <visual name="visual">
+        <pose>0.281 0.086 0.0405 1.5707 0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>.036</radius>
+            <length>.016</length>
+          </cylinder>
+        </geometry>
+      </visual> -->
+
+      <visual name='visual'>
+        <pose>0 0 0.03535 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://racecar/meshes/Tire_Front_Left.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+
+    <joint type="revolute" name="tire_front_left_joint">
+      <pose>0.281 0 0.036 0 0 0</pose>
+      <child>Tire_Front_Left</child>
+      <parent>Upright_Front_Left</parent>
+      <axis>
+        <xyz>0 1 0</xyz>
+      </axis>
+    </joint>
+
+<!-- ____________________________________________________ -->
+
+    <link name='Tire_Front_Right'>
+
+      <collision name="collision">
+        <pose>0.281 -0.086 0.0405 1.5707 0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>.036</radius>
+            <length>.016</length>
+          </cylinder>
+        </geometry>
+      </collision>
+      
+<!--      <visual name="visual">
+        <pose>0.281 -0.086 0.0405 1.5707 0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>.036</radius>
+            <length>.016</length>
+          </cylinder>
+        </geometry>
+      </visual> -->
+
+      <visual name='visual'>
+        <pose>0 0 0.03535 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://racecar/meshes/Tire_Front_Right.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+
+    <joint type="revolute" name="tire_front_right_joint">
+      <pose>0.281 0 0.036 0 0 0</pose>
+      <child>Tire_Front_Right</child>
+      <parent>Upright_Front_Right</parent>
+      <axis>
+        <xyz>0 1 0</xyz>
+      </axis>
+    </joint>
+
+<!-- ____________________________________________________ -->
+
+
+    <link name='Turnbuckle_Left'>
+      <pose>0 0 0.03535 0 0 0</pose>
+      <visual name='visual'>
+        <geometry>
+          <mesh>
+            <uri>model://racecar/meshes/Turnbuckle_Left.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+
+    <joint type="ball" name="turnbuckle_crank_left_joint">
+      <pose>0.2545 0.02136 0.01781 0 0 0</pose>
+      <child>Turnbuckle_Left</child>
+      <parent>Crank_Left</parent>
+      <axis>
+        <xyz>1 1 1</xyz>
+      </axis>
+    </joint>
+
+    <joint type="ball" name="turnbuckle_upright_left_joint">
+      <pose>0.2565 0.05448 0.01316 0 0 0</pose>
+      <child>Turnbuckle_Left</child>
+      <parent>Upright_Front_Left</parent>
+      <axis>
+        <xyz>1 1 1</xyz>
+      </axis>
+    </joint>
+
+<!-- ____________________________________________________ -->
+
+    <link name='Turnbuckle_Right'>
+      <pose>0 0 0.03535 0 0 0</pose>
+      <visual name='visual'>
+        <geometry>
+          <mesh>
+            <uri>model://racecar/meshes/Turnbuckle_Right.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+
+    <joint type="ball" name="turnbuckle_crank_right_joint">
+      <pose>0.2545 -0.02136 0.01781 0 0 0</pose>
+      <child>Turnbuckle_Right</child>
+      <parent>Crank_Right</parent>
+      <axis>
+        <xyz>1 1 1</xyz>
+      </axis>
+    </joint>
+
+    <joint type="ball" name="turnbuckle_upright_right_joint">
+      <pose>0.2565 -0.05448 0.01316 0 0 0</pose>
+      <child>Turnbuckle_Right</child>
+      <parent>Upright_Front_Right</parent>
+      <axis>
+        <xyz>1 1 1</xyz>
+      </axis>
+    </joint>
+
+<!-- ____________________________________________________ -->
+
+  </model>
+</sdf>
