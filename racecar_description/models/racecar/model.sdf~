@@ -47,16 +47,6 @@
           </cylinder>
         </geometry>
       </collision>
-      
-<!--      <visual name="visual">
-        <pose>0 0.086 0.036 1.5707 0 0</pose>
-        <geometry>
-          <cylinder>
-            <radius>.036</radius>
-            <length>.016</length>
-          </cylinder>
-        </geometry>
-      </visual> -->
 
       <visual name='visual'>
         <pose>0 0 0.03535 0 0 0</pose>
@@ -90,17 +80,7 @@
           </cylinder>
         </geometry>
       </collision>
-      
-<!--      <visual name="visual">
-        <pose>0 -0.086 0.036 1.5707 0 0</pose>
-        <geometry>
-          <cylinder>
-            <radius>.036</radius>
-            <length>.016</length>
-          </cylinder>
-        </geometry>
-      </visual> -->
-      
+
       <visual name='visual'>
       <pose>0 0 0.03535 0 0 0</pose>
         <geometry>
@@ -124,13 +104,6 @@
 
     <link name='Servo_Horn'>
       <pose>0 0 0.03535 0 0 0</pose>
-      <visual name='visual'>
-        <geometry>
-          <mesh>
-            <uri>model://racecar/meshes/Servo_Horn.dae</uri>
-          </mesh>
-        </geometry>
-      </visual>
     </link>
 
     <joint type="revolute" name="servo_horn_joint">
@@ -147,13 +120,6 @@
 
     <link name='Crank_Left'>
       <pose>0 0 0.03535 0 0 0</pose>
-      <visual name='visual'>
-        <geometry>
-          <mesh>
-            <uri>model://racecar/meshes/Crank_Left.dae</uri>
-          </mesh>
-        </geometry>
-      </visual>
     </link>
 
     <joint type="revolute" name="crank_left_joint">
@@ -169,13 +135,6 @@
 
     <link name='Crank_Right'>
       <pose>0 0 0.03535 0 0 0</pose>
-      <visual name='visual'>
-        <geometry>
-          <mesh>
-            <uri>model://racecar/meshes/Crank_Right.dae</uri>
-          </mesh>
-        </geometry>
-      </visual>
     </link>
 
     <joint type="revolute" name="crank_right_joint">
@@ -191,13 +150,6 @@
 
     <link name='Coupler'>
       <pose>0 0 0.03535 0 0 0</pose>
-      <visual name='visual'>
-        <geometry>
-          <mesh>
-            <uri>model://racecar/meshes/Coupler.dae</uri>
-          </mesh>
-        </geometry>
-      </visual>
     </link>
 
     <joint type="revolute" name="coupler_left_joint">
@@ -222,13 +174,6 @@
 
     <link name='Turnbuckle_Servo'>
       <pose>0 0 0.03535 0 0 0</pose>
-      <visual name='visual'>
-        <geometry>
-          <mesh>
-            <uri>model://racecar/meshes/Turnbuckle_Servo.dae</uri>
-          </mesh>
-        </geometry>
-      </visual>
     </link>
 
     <joint type="ball" name="turnbuckle_servo_joint">
@@ -306,16 +251,6 @@
           </cylinder>
         </geometry>
       </collision>
-      
-<!--      <visual name="visual">
-        <pose>0.281 0.086 0.0405 1.5707 0 0</pose>
-        <geometry>
-          <cylinder>
-            <radius>.036</radius>
-            <length>.016</length>
-          </cylinder>
-        </geometry>
-      </visual> -->
 
       <visual name='visual'>
         <pose>0 0 0.03535 0 0 0</pose>
@@ -349,16 +284,6 @@
           </cylinder>
         </geometry>
       </collision>
-      
-<!--      <visual name="visual">
-        <pose>0.281 -0.086 0.0405 1.5707 0 0</pose>
-        <geometry>
-          <cylinder>
-            <radius>.036</radius>
-            <length>.016</length>
-          </cylinder>
-        </geometry>
-      </visual> -->
 
       <visual name='visual'>
         <pose>0 0 0.03535 0 0 0</pose>
@@ -384,13 +309,6 @@
 
     <link name='Turnbuckle_Left'>
       <pose>0 0 0.03535 0 0 0</pose>
-      <visual name='visual'>
-        <geometry>
-          <mesh>
-            <uri>model://racecar/meshes/Turnbuckle_Left.dae</uri>
-          </mesh>
-        </geometry>
-      </visual>
     </link>
 
     <joint type="ball" name="turnbuckle_crank_left_joint">
@@ -415,13 +333,6 @@
 
     <link name='Turnbuckle_Right'>
       <pose>0 0 0.03535 0 0 0</pose>
-      <visual name='visual'>
-        <geometry>
-          <mesh>
-            <uri>model://racecar/meshes/Turnbuckle_Right.dae</uri>
-          </mesh>
-        </geometry>
-      </visual>
     </link>
 
     <joint type="ball" name="turnbuckle_crank_right_joint">
@@ -443,6 +354,10 @@
     </joint>
 
 <!-- ____________________________________________________ -->
+
+  <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+    <robotNamespace>/mybot</robotNamespace>
+  </plugin>
 
   </model>
 </sdf>

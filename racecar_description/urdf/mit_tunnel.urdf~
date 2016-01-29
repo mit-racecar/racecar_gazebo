@@ -1,0 +1,29 @@
+<?xml version="1.0" ?>
+
+<robot name="mit_tunnel" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <link name="world"/>
+
+  <link name="MIT_Tunnel_Layout">
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://racecar_description/meshes/MIT_Tunnel_Layout.dae"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://racecar_description/meshes/MIT_Tunnel_Layout.dae"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="fix_tunnel_layout" type="fixed">
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <parent link="world"/>
+    <child link="MIT_Tunnel_Layout"/>
+  </joint>
+
+</robot>
+
