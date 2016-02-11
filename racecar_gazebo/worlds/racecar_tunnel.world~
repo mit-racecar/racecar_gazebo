@@ -30,7 +30,7 @@
         <geometry>
           <plane>
             <normal>0 0 1</normal>
-            <size>100 150</size>
+            <size>150 150</size>
           </plane>
         </geometry>
         <material>
@@ -42,6 +42,11 @@
       </visual>
     </link>
   </model>
+
+  <include>
+    <uri>model://racecar_description/models/MIT_Tunnel</uri>
+    <pose>
+  </include>
 
 </world>
 </sdf>

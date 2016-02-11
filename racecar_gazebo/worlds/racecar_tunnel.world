@@ -43,5 +43,10 @@
     </link>
   </model>
 
+  <include>
+    <uri>model://racecar_description/models/MIT_Tunnel</uri>
+    <pose>6 20 0 0 0 0</pose>
+  </include>
+
 </world>
 </sdf>
