@@ -3,7 +3,7 @@ import rospy
 from std_msgs.msg import Bool
 from std_msgs.msg import Float32
 from std_msgs.msg import Float64
-from sensor_msgs.msg import Joy
+from ackermann_msgs.msg import AckermannDriveStamped
 
 flag_move = 0
 
@@ -19,22 +19,8 @@ def set_throttle_steer(data):
     pub_pos_left_steering_hinge = rospy.Publisher('/racecar/left_steering_hinge_position_controller/command', Float64, queue_size=1)
     pub_pos_right_steering_hinge = rospy.Publisher('/racecar/right_steering_hinge_position_controller/command', Float64, queue_size=1)
 
-    joy_start = data.buttons[7]
-    joy_stop = data.buttons[1]
-    joy_throttle = data.axes[1]
-    joy_steer = data.axes[3]
-    
-    if joy_start == True:
-        flag_move = 1
-    if joy_stop == True:
-        flag_move = 0
-
-    if flag_move == 1:
-        throttle = joy_throttle*100
-        steer = joy_steer		
-    else:
-        throttle = 0
-        steer = 0
+    throttle = data.drive.speed/0.1
+    steer = data.drive.steering_angle
 	
     pub_vel_left_rear_wheel.publish(throttle)
     pub_vel_right_rear_wheel.publish(throttle)
@@ -47,7 +33,7 @@ def servo_commands():
 
     rospy.init_node('servo_commands', anonymous=True)
 
-    rospy.Subscriber("joy", Joy, set_throttle_steer)
+    rospy.Subscriber("racecar/ackermann_cmd_mux/input/teleop", AckermannDriveStamped, set_throttle_steer)
 
     # spin() simply keeps python from exiting until this node is stopped
     rospy.spin()

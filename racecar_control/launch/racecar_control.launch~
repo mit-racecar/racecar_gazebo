@@ -10,17 +10,11 @@
         output="screen" ns="/racecar" args="left_rear_wheel_velocity_controller right_rear_wheel_velocity_controller 
                                             left_front_wheel_velocity_controller right_front_wheel_velocity_controller 
                                             left_steering_hinge_position_controller right_steering_hinge_position_controller 
-                                            joint_state_controller"/>
+                                            hokuyo_position_controller joint_state_controller"/>
 
   <!-- convert joint states to TF transforms for rviz, etc -->
   <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen">
     <remap from="/joint_states" to="/racecar/joint_states" />
-  </node>
-
-  <!-- joy node -->
-  <node respawn="true" pkg="joy" type="joy_node" name="auto_pev_alpha_joy" >
-    <param name="dev" type="string" value="/dev/input/js0" />
-    <param name="deadzone" value="0.05" />
   </node>
 
   <!-- servo node -->
