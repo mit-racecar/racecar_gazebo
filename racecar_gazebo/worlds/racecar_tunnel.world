@@ -6,6 +6,12 @@
     <uri>model://sun</uri>
   </include>
 
+  <gui>
+    <camera name='main'>
+      <pose>0 0 10 0 1.571 0</pose>
+    </camera>
+  </gui>
+
   <model name="ground_plane">
     <static>true</static>
     <link name="link">
