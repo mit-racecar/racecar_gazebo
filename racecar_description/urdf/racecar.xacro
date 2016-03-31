@@ -5,12 +5,20 @@
 
   <!-- Add chassis and it's inertia link -->
 
+  <link name="base_link" />
+
   <link name="chassis">
     <visual>
       <xacro:chassis_geometry/>
       <material name="blue" />
     </visual>
   </link>
+
+  <joint name="base_link_joint" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <parent link="base_link" />
+    <child link="chassis" />
+  </joint>
 
   <link name="chassis_inertia">
     <inertial>
