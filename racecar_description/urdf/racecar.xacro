@@ -178,7 +178,7 @@
 
   <!-- Add Hokuyo laser scanner -->
 
-  <link name="hokuyo_link">
+  <link name="laser">
     <inertial>
       <xacro:hokuyo_inertial_params />
     </inertial>
@@ -200,7 +200,7 @@
   <joint name="hokuyo_joint" type="revolute">
     <origin xyz="0.325 0.0 0.065" rpy="0 0 0"/>
     <parent link="chassis" />
-    <child link="hokuyo_link" />
+    <child link="laser" />
     <axis xyz="0 0 1" />
     <limit lower="0.0" upper="0.0" effort="0.0" velocity="0.0" />
   </joint>
