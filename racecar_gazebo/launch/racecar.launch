@@ -16,4 +16,11 @@
   <!-- ros_control racecar launch file -->
   <include file="$(find racecar_control)/launch/racecar_control.launch" />
 
+  <!-- priority-based command multiplexer -->
+  <arg name="racecar_version" default="racecar-v2" />
+  <arg name="run_camera" default="false"/>
+  <include file="$(find ackermann_cmd_mux)/launch/standalone.launch" ns="racecar">
+    <arg name="nodelet_manager_name" value="ackermann_cmd_mux_nodelet_manager" />
+    <arg name="config_file" value="$(find racecar)/config/$(arg racecar_version)/mux.yaml" />
+  </include>
 </launch>
