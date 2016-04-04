@@ -57,7 +57,7 @@
 </gazebo>
 
   <!-- hokuyo -->
-<gazebo reference="hokuyo_link">
+<gazebo reference="laser">
   <material>Gazebo/Grey</material>
   <sensor type="ray" name="hokuyo_sensor">
     <pose>0 0 0.0124 0 0 0</pose>
@@ -84,7 +84,7 @@
     </ray>
     <plugin name="gazebo_ros_hokuyo_controller" filename="libgazebo_ros_laser.so">
       <topicName>/racecar/laser/scan</topicName>
-      <frameName>hokuyo_link</frameName>
+      <frameName>laser</frameName>
     </plugin>
   </sensor>
 </gazebo>
@@ -127,16 +127,5 @@
     </plugin>
   </sensor>
 </gazebo>
-
-<!-- odometry -->
-  <gazebo>
-    <plugin name="object_controller" filename="libgazebo_ros_planar_move.so">
-      <commandTopic>cmd_vel</commandTopic>
-      <odometryTopic>odom</odometryTopic>
-      <odometryFrame>odom</odometryFrame>
-      <odometryRate>20.0</odometryRate>
-      <robotBaseFrame>chassis</robotBaseFrame>
-    </plugin>
-  </gazebo>
 
 </robot>

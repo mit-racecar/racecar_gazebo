@@ -5,12 +5,20 @@
 
   <!-- Add chassis and it's inertia link -->
 
+  <link name="base_link" />
+
   <link name="chassis">
     <visual>
       <xacro:chassis_geometry/>
       <material name="blue" />
     </visual>
   </link>
+
+  <joint name="base_link_joint" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <parent link="base_link" />
+    <child link="chassis" />
+  </joint>
 
   <link name="chassis_inertia">
     <inertial>
@@ -90,7 +98,7 @@
     <origin xyz="0.325 0.1 0" rpy="0 1.5708 0" />
     <parent link="chassis" />
     <child link="left_steering_hinge" />
-    <axis xyz="1 0 0" />
+    <axis xyz="-1 0 0" />
     <limit lower="-1.0" upper="1.0" effort="10" velocity="100" />
   </joint>
 
@@ -112,7 +120,7 @@
     <origin xyz="0.325 -0.1 0" rpy="0 1.5708 0" />
     <parent link="chassis" />
     <child link="right_steering_hinge" />
-    <axis xyz="1 0 0" />
+    <axis xyz="-1 0 0" />
     <limit lower="-1.0" upper="1.0" effort="10" velocity="100" />
   </joint>
 
@@ -170,7 +178,7 @@
 
   <!-- Add Hokuyo laser scanner -->
 
-  <link name="hokuyo_link">
+  <link name="laser">
     <inertial>
       <xacro:hokuyo_inertial_params />
     </inertial>
@@ -189,15 +197,12 @@
     </visual>
   </link>
 
-  <joint name="hokuyo_joint" type="revolute">
+  <joint name="hokuyo_joint" type="fixed">
     <origin xyz="0.325 0.0 0.065" rpy="0 0 0"/>
     <parent link="chassis" />
-    <child link="hokuyo_link" />
+    <child link="laser" />
     <axis xyz="0 0 1" />
-    <limit lower="0.0" upper="0.0" effort="0.0" velocity="0.0" />
   </joint>
-
-  <xacro:hokuyo_transmission name="hokuyo" />
 
 
   <!-- zed camera -->
