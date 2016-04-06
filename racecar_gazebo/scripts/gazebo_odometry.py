@@ -9,7 +9,7 @@ Winter Guerra
 import rospy
 from nav_msgs.msg import Odometry
 from geometry_msgs.msg import Pose, Twist, Transform, TransformStamped
-from gazebo_msgs.msg import ModelStates
+from gazebo_msgs.msg import LinkStates
 from std_msgs.msg import Header
 import numpy as np
 import math
@@ -31,12 +31,12 @@ class OdometryNode:
         self.tf_pub = tf2_ros.TransformBroadcaster()
 
         # Set subscribers
-        rospy.Subscriber('/gazebo/model_states', ModelStates, self.sub_robot_pose_update)
+        rospy.Subscriber('/gazebo/link_states', LinkStates, self.sub_robot_pose_update)
 
     def sub_robot_pose_update(self, msg):
         # Find the index of the racecar
         try:
-            arrayIndex = msg.name.index('racecar')
+            arrayIndex = msg.name.index('racecar::chassis')
         except ValueError as e:
             # Wait for Gazebo to startup
             pass
