@@ -90,7 +90,7 @@
     <origin xyz="0.325 0.1 0" rpy="0 1.5708 0" />
     <parent link="chassis" />
     <child link="left_steering_hinge" />
-    <axis xyz="1 0 0" />
+    <axis xyz="-1 0 0" />
     <limit lower="-1.0" upper="1.0" effort="10" velocity="100" />
   </joint>
 
@@ -112,7 +112,7 @@
     <origin xyz="0.325 -0.1 0" rpy="0 1.5708 0" />
     <parent link="chassis" />
     <child link="right_steering_hinge" />
-    <axis xyz="1 0 0" />
+    <axis xyz="-1 0 0" />
     <limit lower="-1.0" upper="1.0" effort="10" velocity="100" />
   </joint>
 
