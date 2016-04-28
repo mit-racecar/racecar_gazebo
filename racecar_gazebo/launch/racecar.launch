@@ -1,10 +1,11 @@
 <?xml version="1.0"?>
 <launch>
   <arg name="world_name" default="racecar" />
+  <arg name="gui" default="racecar" />
 
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
     <arg name="world_name" value="$(find racecar_gazebo)/worlds/$(arg world_name).world"/>
-    <arg name="gui" value="true"/>
+    <arg name="gui" value="$(arg gui)"/>
   </include>
 
   <!-- urdf xml robot description loaded on the Parameter Server, converting the xacro into a proper urdf file-->
