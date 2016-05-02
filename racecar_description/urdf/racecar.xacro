@@ -15,7 +15,7 @@
   </link>
 
   <joint name="base_link_joint" type="fixed">
-    <origin xyz="0 0 0" rpy="0 0 0" />
+    <origin xyz="0 0 0.05" rpy="0 0 0" />
     <parent link="base_link" />
     <child link="chassis" />
   </joint>
@@ -198,7 +198,7 @@
   </link>
 
   <joint name="hokuyo_joint" type="fixed">
-    <origin xyz="0.325 0.0 0.065" rpy="0 0 0"/>
+    <origin xyz="0.265 0.0 0.075" rpy="0 0 0"/>
     <parent link="chassis" />
     <child link="laser" />
     <axis xyz="0 0 1" />
