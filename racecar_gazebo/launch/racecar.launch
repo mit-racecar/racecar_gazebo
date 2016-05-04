@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <launch>
   <arg name="world_name" default="racecar" />
-  <arg name="gui" default="racecar" />
+  <arg name="gui" default="true" />
 
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
     <arg name="world_name" value="$(find racecar_gazebo)/worlds/$(arg world_name).world"/>
