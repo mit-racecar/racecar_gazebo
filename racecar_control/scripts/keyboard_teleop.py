@@ -9,7 +9,7 @@ banner = """
 Reading from the keyboard  and Publishing to AckermannDriveStamped!
 ---------------------------
 Moving around:
-        w    
+        w
    a    s    d
 anything else : stop
 CTRL-C to quit
@@ -37,7 +37,7 @@ def vels(speed,turn):
 
 if __name__=="__main__":
   settings = termios.tcgetattr(sys.stdin)
-  pub = rospy.Publisher('/vesc/ackermann_cmd_mux/input/teleop', AckermannDriveStamped)
+  pub = rospy.Publisher('/racecar/ackermann_cmd_mux/input/teleop', AckermannDriveStamped)
   rospy.init_node('keyop')
 
   x = 0
@@ -58,28 +58,28 @@ if __name__=="__main__":
        msg = AckermannDriveStamped();
        msg.header.stamp = rospy.Time.now();
        msg.header.frame_id = "base_link";
-  
+
        msg.drive.speed = x*speed;
        msg.drive.acceleration = 1;
        msg.drive.jerk = 1;
        msg.drive.steering_angle = th*turn
        msg.drive.steering_angle_velocity = 1
-  
+
        pub.publish(msg)
-  
+
   except:
     print 'error'
-  
+
   finally:
     msg = AckermannDriveStamped();
     msg.header.stamp = rospy.Time.now();
     msg.header.frame_id = "base_link";
-  
+
     msg.drive.speed = 0;
     msg.drive.acceleration = 1;
     msg.drive.jerk = 1;
     msg.drive.steering_angle = 0
     msg.drive.steering_angle_velocity = 1
     pub.publish(msg)
-  
+
     termios.tcsetattr(sys.stdin, termios.TCSADRAIN, settings)
