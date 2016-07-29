@@ -2,6 +2,7 @@
 <launch>
   <arg name="world_name" default="racecar" />
   <arg name="gui" default="true" />
+  <arg name="run_camera" default="false"/>
 
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
     <arg name="world_name" value="$(find racecar_gazebo)/worlds/$(arg world_name).world"/>
@@ -15,12 +16,11 @@
   <node name="racecar_spawn" pkg="gazebo_ros" type="spawn_model" output="screen" args="-urdf -param robot_description -model racecar -z 0.05" />
 
   <!-- ros_control racecar launch file -->
-  <include file="$(find racecar_control)/launch/racecar_control.launch" />
+  <include file="$(find racecar_control)/launch/racecar_control.launch" ns="/"/>
 
   <!-- priority-based command multiplexer -->
   <arg name="racecar_version" default="racecar-v2" />
-  <arg name="run_camera" default="false"/>
-  <include file="$(find ackermann_cmd_mux)/launch/standalone.launch" ns="racecar">
+  <include file="$(find ackermann_cmd_mux)/launch/standalone.launch" ns="vesc">
     <arg name="nodelet_manager_name" value="ackermann_cmd_mux_nodelet_manager" />
     <arg name="config_file" value="$(find racecar)/config/$(arg racecar_version)/mux.yaml" />
   </include>
