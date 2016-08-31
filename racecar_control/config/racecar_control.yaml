@@ -34,8 +34,3 @@ racecar:
     type: effort_controllers/JointPositionController
     pid: {p: 1.0, i: 0.0, d: 0.5}
 
-  # Position Controllers ---------------------------------------
-  hokuyo_position_controller:
-    joint: hokuyo_joint
-    type: effort_controllers/JointPositionController
-    pid: {p: 1.0, i: 0.0, d: 0.5}

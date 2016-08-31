@@ -10,7 +10,7 @@
         output="screen" ns="/racecar" args="left_rear_wheel_velocity_controller right_rear_wheel_velocity_controller
                                             left_front_wheel_velocity_controller right_front_wheel_velocity_controller
                                             left_steering_hinge_position_controller right_steering_hinge_position_controller
-                                            hokuyo_position_controller joint_state_controller"/>
+                                            joint_state_controller"/>
 
   <!-- convert joint states to TF transforms for rviz, etc -->
   <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen">
@@ -18,7 +18,9 @@
   </node>
 
   <!-- servo node -->
-  <node pkg="racecar_control" type="servo_commands.py" name="servo_commands" output="screen"> </node>
+  <node pkg="racecar_control" type="servo_commands.py" name="servo_commands" output="screen">
+    <remap from="/racecar/ackermann_cmd_mux/output" to="/vesc/ackermann_cmd_mux/output"/>
+  </node>
 
   <!-- Allow for Gazebo to broadcast odom -->
   <node pkg="racecar_gazebo" name="gazebo_odometry_node" type="gazebo_odometry.py"/>
