@@ -18,10 +18,7 @@
   <!-- ros_control racecar launch file -->
   <include file="$(find racecar_control)/launch/racecar_control.launch" ns="/"/>
 
-  <!-- priority-based command multiplexer -->
+  <!-- Spawn the MUXs -->
   <arg name="racecar_version" default="racecar-v2" />
-  <include file="$(find ackermann_cmd_mux)/launch/standalone.launch" ns="vesc">
-    <arg name="nodelet_manager_name" value="ackermann_cmd_mux_nodelet_manager" />
-    <arg name="config_file" value="$(find racecar)/config/$(arg racecar_version)/mux.yaml" />
-  </include>
+  <include file="$(find racecar)/launch/mux.launch" ns="vesc" />
 </launch>
