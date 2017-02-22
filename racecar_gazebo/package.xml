@@ -41,9 +41,11 @@
   <!--   <test_depend>gtest</test_depend> -->
   <buildtool_depend>catkin</buildtool_depend>
   <build_depend>gazebo_ros</build_depend>
-  <build_depend>controller_manager</build_depend>
   <run_depend>gazebo_ros</run_depend>
   <run_depend>controller_manager</run_depend>
+  <run_depend>ros_controllers</run_depend>
+  <run_depend>ros_control</run_depend>
+  <run_depend>gazebo_ros_control</run_depend>
 
 
   <!-- The export tag contains other, unspecified, tags -->
