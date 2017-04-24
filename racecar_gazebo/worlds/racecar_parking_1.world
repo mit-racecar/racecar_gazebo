@@ -51,7 +51,7 @@
 
   <include>
     <uri>model://racecar_description/models/parking_1</uri>
-    <pose>0 0 0 0 0 -1.57</pose>
+    <pose>-1.2 0.25 0 0 0 -1.57</pose>
   </include>
 
 </world>
