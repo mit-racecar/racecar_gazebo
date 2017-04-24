@@ -62,7 +62,7 @@
     <material>Gazebo/Grey</material>
     <sensor type="ray" name="hokuyo_sensor">
       <pose>0 0 0.0124 0 0 0</pose>
-      <visualize>false</visualize>
+      <visualize>true</visualize>
       <update_rate>40</update_rate>
       <ray>
         <scan>
@@ -74,13 +74,13 @@
           </horizontal>
         </scan>
         <range>
-          <min>0.06</min>
+          <min>0.1</min>
           <max>10.0</max>
           <resolution>0.01</resolution>
         </range>
         <noise>
           <mean>0.0</mean>
-          <stddev>0.03</stddev>
+          <stddev>0.01</stddev>
         </noise>
       </ray>
       <plugin name="gazebo_ros_hokuyo_controller" filename="libgazebo_ros_laser.so">
