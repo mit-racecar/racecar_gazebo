@@ -5,7 +5,7 @@
       <visual name="visual">
         <geometry>
           <mesh>
-            <uri>model://marker16/meshes/Marker16.dae</uri>
+            <uri>model://racecar_description/models/ar_tags/marker16/meshes/Marker16.dae</uri>
           <scale>0.1 0.1 0.1</scale></mesh>
         </geometry>
       </visual>
